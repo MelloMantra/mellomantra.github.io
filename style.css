@@ -1,0 +1,130 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Cousine";
+}
+
+p {
+    margin: 15px;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Josefin Sans';
+    padding: 30px;
+}
+
+h2 {
+    padding: 10px;
+    padding-left: 25px;
+    font-family: "Rubik Mono One";
+}
+
+.title {
+    font-size: 150px;
+    color: darkslateblue;
+}
+
+.title.music {
+    background-color: rgb(255, 255, 255);
+    background-image: url("https://i.pinimg.com/originals/f1/f7/55/f1f7556d112607ce1eba609f14cc4d22.jpg");
+    background-blend-mode: multiply;
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul {
+    background-color: darkslateblue;
+    font-size: 20px;
+}
+
+/*nav li {
+    display: inline;
+}*/
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    overflow: hidden;
+}
+
+ul li {
+    display: inline;
+}
+
+ul li a {
+    display: inline-block;
+    padding: 20px;
+    text-align: center;
+    margin: 0px;
+}
+
+nav a {
+    font-family: "Rubik Mono One";
+    text-decoration: none;
+    background-color: darkslateblue;
+    color: white;
+}
+
+nav a:hover {
+    background-color: rgb(41, 32, 100);
+}
+
+.logo {
+    text-align: center;
+    width: 30px;
+}
+
+
+
+/*
+CUSTOM FONTS
+
+ <uniquifier>: Use a unique and descriptive class name
+ <weight>: Use a value from 100 to 700 
+
+ */
+
+.josefin-sans-font {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.rubik-mono-one-regular {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.cousine-regular {
+    font-family: "Cousine", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+  .cousine-bold {
+    font-family: "Cousine", monospace;
+    font-weight: 700;
+    font-style: normal;
+}
+  
+  .cousine-regular-italic {
+    font-family: "Cousine", monospace;
+    font-weight: 400;
+    font-style: italic;
+}
+  
+  .cousine-bold-italic {
+    font-family: "Cousine", monospace;
+    font-weight: 700;
+    font-style: italic;
+}
+    
