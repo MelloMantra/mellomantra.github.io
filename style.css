@@ -81,8 +81,23 @@ nav a:hover {
     width: 30px;
 }
 
+footer {
+    background-color: darkslateblue;
+    text-align: center;
+    padding: 40px;
+    padding-bottom: 30px;
+    font-size: 15px;
+    font-family: "Cousine";
+    color: white;
+}
 
+footer div {
+    padding: 5px;
+}
 
+footer a {
+    color: white;
+}
 /*
 CUSTOM FONTS
 
