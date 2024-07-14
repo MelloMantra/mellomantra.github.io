@@ -137,13 +137,21 @@ footer a {
     background-color: darkslateblue;
     color: white;
     cursor: pointer;
-    padding: 15px;
-    border-radius: 100%;
+    padding: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 90%;
     font-size: 15px;
 }
 
 #bttButton:hover {
     background-color: rgb(51, 43, 98);
+}
+
+#wordscroll {
+    font-family: "Rubik Mono One";
+    font-size: 20px;
+    color: darkslateblue;
 }
 
 /*
