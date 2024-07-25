@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MELLO MANTRA</title>
-    <meta name="description" content="This is Mello Mantra's personal portfolio website.">
-    <link rel="stylesheet" href="style.css">
-    <script src="app.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="music.html">MUSIC</a></li>
-          <li><a href="projects.html">PROJECTS</a></li>
-          <li><a href="speedruns.html">SPEEDRUNS</a></li>
-        </ul>
-      </nav>
-    </header>
-    <h1 class="title">
-      MELLO MANTRA
-    </h1>
-    <button onclick="topFunction()" id="bttButton" title="Back to top">⬆</button>
-    <p>Welcome to Mello Mantra (Matteo Del Rossi)'s personal website.</p>
-    <h2>ABOUT</h2>
-    <p>My name is Matteo Del Rossi, and I am a <span id="wordscroll" onclick="typingAnimation()">test</span></p>
-    <p>a</p>
-    <p>a</p>
-    <footer>
-      <div><strong onclick="topFunction()" style="cursor: pointer; text-decoration: underline;">Back to top</strong></div>
-      <div>For business inquiries, email <a href="mailto:mello.mantra.music@gmail.com"><strong>mello.mantra.music@gmail.com</strong></a>.</div>
-      <div>This website is <strong>open-source</strong>.</div>
-      <div><a href="https://github.com/MelloMantra/mellomantra.github.io/blob/main/LICENSE" target="_blank"><strong>License</strong></a></div>
-    </footer>
-    <script src="app.js">typingAnimation();</script>
+    <head>
+    	<title>MELLO MANTRA</title>
+    	<meta name="description" content="This is Mello Mantra's personal portfolio website.">
+    	<link rel="stylesheet" href="style.css">
+    	<link rel="preconnect" href="https://fonts.googleapis.com">
+    	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
     
-  </body>
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+		<script src="https://unpkg.com/split-type"></script>
+		<script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
+		<script src="app.js"></script>
+	</head>
+	<body>
+		<header>
+			<nav>
+					<ul>
+						<li><a href="index.html">HOME</a></li>
+						<li><a href="music.html">MUSIC</a></li>
+						<li><a href="projects.html">PROJECTS</a></li>
+						<li><a href="speedruns.html">SPEEDRUNS</a></li>
+					</ul>
+			</nav>
+		</header>
+		<h1 class="title">
+		MELLO MANTRA
+		</h1>
+		<button id="bttButton" title="Back to top">⬆</button>
+		<p>Welcome to Mello Mantra (Matteo Del Rossi)'s personal website.</p>
+		<h2>ABOUT</h2>
+		<p>My name is Matteo Del Rossi, and I am a <span id="wordscroll" onclick="typingAnimation()">test</span></p>
+		<p>a</p>
+		<p>a</p>
+		<footer>
+			<div><strong style="cursor: pointer; text-decoration: underline;" id="topText">Back to top</strong></div>
+			<div>© Mello Mantra, 2024</div>
+			<div>For business inquiries, email <a href="mailto:mello.mantra.music@gmail.com"><strong>mello.mantra.music@gmail.com</strong></a>.</div>
+			<div>This website is <strong>open-source</strong>.</div>
+			<div><a href="https://github.com/MelloMantra/mellomantra.github.io/blob/main/LICENSE" target="_blank"><strong>License</strong></a></div>
+		</footer>
+		<!--<script src="app.js">typingAnimation();</script>-->
+    
+	</body>
 </html>

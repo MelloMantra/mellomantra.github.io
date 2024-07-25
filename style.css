@@ -30,6 +30,7 @@ h1 {
     text-align: center;
     font-family: 'Josefin Sans';
     padding: 30px;
+    vertical-align: middle;
 }
 
 h2 {
@@ -40,6 +41,10 @@ h2 {
     animation-duration: 2s;
     animation-iteration-count: 1;
 }
+
+/*p.music {
+    margin-right: 50%;
+}*/
 
 .title {
     font-size: 150px;
@@ -53,6 +58,9 @@ h2 {
     background-color: rgb(255, 255, 255);
     background-image: url("https://i.pinimg.com/originals/f1/f7/55/f1f7556d112607ce1eba609f14cc4d22.jpg");
     background-blend-mode: multiply;
+    margin:0;
+    padding-top: 20%;
+    background-size:cover;
 }
 
 nav {
@@ -89,7 +97,7 @@ ul li a {
 nav a {
     font-family: "Rubik Mono One";
     text-decoration: none;
-    background-color: darkslateblue;
+    background-color: rgb(72, 61, 139);
     color: white;
 }
 
@@ -105,7 +113,7 @@ nav a:hover {
 }
 
 .logo:hover {
-    background-color: rgba(100, 100, 100, 0.5);
+    background-color: rgba(72, 61, 139, 0.5);
 }
 
 footer {

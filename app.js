@@ -1,11 +1,40 @@
-//document.addEventListener("DOMContentLoaded", () => {  
+// imports
+
+document.addEventListener("DOMContentLoaded", () => {  
     let topButton = document.getElementById("bttButton");
+    let topText = document.getElementById("topText");
     let adjective = document.getElementById("wordscroll");
     var wordIndex = 0;
     var words = ["programmer", "musician", "maker", "engineer", "composer", "speedrunner", "dreamer", "producer", "gamer", "TASer", "artist", "creator."];
-    adjective.innerHTML = "test";
 
     window.onscroll = function( ) {scrollFunction()};
+    topText.onclick = function( ) {topFunction()};
+    topButton.onclick = function( ) {topFunction()};
+
+    //Scrolly stuff
+    gsap.registerPlugin(ScrollTrigger);
+
+    // lenis
+    const lenis = new Lenis();
+
+    lenis.on('scroll', (e) => {
+        console.log(e);
+    })
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+
+    // functions
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
 
     function typingAnimation() {
         taptap(0);
@@ -54,8 +83,5 @@
         }
     }
 
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-//});
+    
+});
