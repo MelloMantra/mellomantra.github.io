@@ -47,7 +47,7 @@ h2 {
 
 section {
     height: 100vh;
-    padding: 0 clamp(6rem, 15vw, 23rem);
+    padding: 0 clamp(6rem, 14vw, 22rem);
     display: grid;
     align-content: center;
     
@@ -204,6 +204,10 @@ footer a {
     padding-left: 15px;
     border-radius: 100%;
     font-size: 15px;
+
+    animation-name: quickfade;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
 }
 
 #bttButton img {
