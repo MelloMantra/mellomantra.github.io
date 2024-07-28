@@ -12,6 +12,9 @@ header {
     position: sticky;
     top: 0;
     z-index: 999;
+    animation-name: quickfade;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
 }
 
 p {
@@ -42,13 +45,58 @@ h2 {
     animation-iteration-count: 1;
 }
 
+section {
+    height: 100vh;
+    padding: 0 clamp(6rem, 15vw, 23rem);
+    display: grid;
+    align-content: center;
+    
+    h2 {
+        font-size: clamp(3rem, 5vw, 9rem);
+        padding: 0;
+    }
+
+    p {
+        font-size: clamp(1rem, 2vw, 4rem);
+        padding:0;
+        margin: 0;
+    }
+
+    &:nth-of-type(1) {
+        border-bottom: 1px solid black;
+    }
+    &:nth-of-type(2) {
+        background-color: black;
+        color: white
+    }
+    &:nth-of-type(4) {
+        background-color: rgb(56, 46, 121);
+        color: white
+    }
+}
+
+.full {
+    place-content: center;
+}
+
+h3 {
+    color: white;
+    background-color: black;
+    margin: 10vh;
+    animation-name: quickfade;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+}
+
 p.music {
     margin-right: 10%;
     margin-left: 10%;
 }
 
 .title {
-    font-size: 150px;
+    padding-top: 30px;
+    padding-bottom: 0;
+    font-size: clamp(8rem, 12vw, 20rem);
     color: darkslateblue;
     animation-name: quickfade;
     animation-duration: 1s;
@@ -117,6 +165,10 @@ nav a:hover {
     background-color: rgba(72, 61, 139, 0.5);
 }
 
+.reveal-type {
+    font-kerning: none;
+}
+
 footer {
     background-color: darkslateblue;
     text-align: center;
@@ -164,10 +216,14 @@ footer a {
     background-color: rgb(51, 43, 98);
 }
 
-#wordscroll {
-    font-family: "Rubik Mono One";
-    font-size: 20px;
-    color: darkslateblue;
+#typetext {
+    font-weight: bold;
+    font-family: 'Rubik Mono One';
+}
+
+#cursor {
+    opacity: 1;
+    animation: blink 1s linear infinite;
 }
 
 /*
@@ -181,10 +237,14 @@ ANIMATIONS
     100% {opacity: 1;}
 }
 
-  @keyframes quickfade {
+@keyframes quickfade {
     0% {opacity: 0;}
     50% {opacity: 0;}
     100% {opacity: 1;}
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
 /*

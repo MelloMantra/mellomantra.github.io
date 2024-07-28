@@ -3,9 +3,9 @@
 document.addEventListener("DOMContentLoaded", () => {  
     let topButton = document.getElementById("bttButton");
     let topText = document.getElementById("topText");
-    let adjective = document.getElementById("wordscroll");
-    var wordIndex = 0;
-    var words = ["programmer", "musician", "maker", "engineer", "composer", "speedrunner", "dreamer", "producer", "gamer", "TASer", "artist", "creator."];
+    let typetext = document.getElementById("typetext");
+    let cursor = document.getElementById('cursor');
+    const words = ["programmer.", "musician.", "maker.", "engineer.", "composer.", "speedrunner.", "dreamer.", "producer.", "gamer.", "TASer.", "artist.", "creator."];
 
     window.onscroll = function( ) {scrollFunction()};
     topText.onclick = function( ) {topFunction()};
@@ -13,6 +13,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Scrolly stuff
     gsap.registerPlugin(ScrollTrigger);
+
+    const splitTypes = document.querySelectorAll('.reveal-type')
+
+    splitTypes.forEach((char,i) => {
+
+        const text = new SplitType(char, { types: 'chars'})
+
+        gsap.from(text.chars, {
+            scrollTrigger: {
+                trigger: char,
+                start: 'top 100%',
+                end: 'top 50%',
+                scrub: true,
+                markers: false
+            },
+            y: -20,
+            opacity: 0,
+            stagger: 0.1
+        });
+
+    });
 
     // lenis
     const lenis = new Lenis();
@@ -28,51 +49,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     requestAnimationFrame(raf);
 
+    // typewriter
+    
+    var wordIndex = 0;
+    const writeLoop = async () => {
+        while (true) {
+            typetext.innerHTML = "";
+            typetext.style.backgroundColor = 'white';
+            typetext.style.color = 'black';
+            cursor.style.display = 'inline-block';
+            await sleep(1000)
+            let word = words[wordIndex];
+            let sleeptime = 500/word.length + Math.random()*100;
+            console.log(word);
+            for (let i=0; i<word.length; i++) {
+                typetext.innerHTML += word.charAt(i);
+                await sleep(sleeptime);
+            }
+            if (wordIndex==words.length-1) {
+                wordIndex = 0;
+            } else {
+                wordIndex++;
+            }
+            await sleep(2000)
+            typetext.style.backgroundColor = 'black';
+            typetext.style.color = 'white';
+            cursor.style.display = 'none';
+            await sleep(400)
+        }
+    }
+
+    writeLoop();
+
+    function sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
 
     // functions
 
     function topFunction() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
-    }
-
-    function typingAnimation() {
-        taptap(0);
-        setTimeout(typewrite(words[wordIndex],0),1000);
-        taptap(0);
-        backspace();
-        wordIndex++;
-        if (wordIndex<12) {
-            setTimeout(typingAnimation(),1000);
-        }
-    }
-
-    function taptap(taps) {
-        if (taps<7) {
-            if (adjective.innerHTML.charAt(adjective.innerHTML.length-1)=="█") {
-                adjective.innerHTML = adjective.innerHTML.substring(0, adjective.innerHTML.length-1);
-            } else {
-                adjective.innerHTML += "█";
-            }
-            setTimeout(taptap(taps+1),1000);
-        }
-    }
-
-    function backspace() {
-        adjective.style.backgroundColor = "darkslateblue";
-        adjective.style.color = "white";
-        setTimeout(function() {
-            adjective.style.color = "darkslateblue";
-            adjective.style.backgroundColor = "white";
-            adjective.innerHTML = "";
-        }, 1000)
-    }
-
-    function typewrite(text, index) {
-        if (index<text.length) {
-            adjective.innerHTML += text.charAt(index);
-            setTimeout(typewrite(text, index+1),100);
-        }
     }
 
     function scrollFunction() {
@@ -83,5 +101,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    
 });
