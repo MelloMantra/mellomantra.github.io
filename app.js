@@ -1,6 +1,9 @@
 // imports
 
-document.addEventListener("DOMContentLoaded", () => {  
+document.addEventListener("DOMContentLoaded", () => {
+    var coords = {x: 0, y: 0};
+    let blobs = document.querySelectorAll(".blob");
+    let mouse = document.querySelector(".mouse");
     let topButton = document.getElementById("bttButton");
     let topText = document.getElementById("topText");
     let typetext = document.getElementById("typetext");
@@ -50,15 +53,15 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(raf);
 
     // typewriter
-    
+
     var wordIndex = 0;
     const writeLoop = async () => {
         while (true) {
             typetext.innerHTML = "";
-            typetext.style.backgroundColor = 'white';
+            typetext.style.backgroundColor = 'inherit';
             typetext.style.color = 'black';
             cursor.style.display = 'inline-block';
-            await sleep(1000)
+            await sleep(1000);
             let word = words[wordIndex];
             let sleeptime = 500/word.length + Math.random()*100;
             console.log(word);
@@ -71,11 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 wordIndex++;
             }
-            await sleep(2000)
+            await sleep(2000);
             typetext.style.backgroundColor = 'black';
             typetext.style.color = 'white';
             cursor.style.display = 'none';
-            await sleep(400)
+            await sleep(400);
         }
     }
 
@@ -85,6 +88,48 @@ document.addEventListener("DOMContentLoaded", () => {
         return new Promise((resolve) => setTimeout(resolve, ms));
     }
 
+    // mouse followers
+
+    blobs.forEach(function(blob) {
+        blob.x = 0;
+        blob.y = 0;
+        blob.style.backgroundColor = "white";
+    });
+
+    document.addEventListener("mousemove", (e) => {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+    });
+
+    function animateBlobs() {
+        let x = coords.x;
+        let y = coords.y;
+
+        mouse.style.left = x;
+        mouse.style.top = y;
+
+        blobs.forEach(function(blob, index) {
+            const scrollLeft = (window.scrollX !== undefined) ? window.scrollX : (document.documentElement || document.body.parentNode || document.body).scrollLeft;
+            const scrollTop = (window.scrollY !== undefined) ? window.scrollY : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+
+            blob.style.left = (x - 12) + scrollLeft +"px";
+            blob.style.top = (y - 12) + scrollTop + "px";
+            blob.x = x;
+            blob.y = y;
+
+            blob.style.scale = (blobs.length - index) / blobs.length;
+
+            const nextBlob = blobs[index+1] || blobs[0];
+            x+=(nextBlob.x - x)*0.35;
+            y+=(nextBlob.y - y)*0.35;
+
+            blob.style.zIndex = 9999 - index;
+        });
+
+        requestAnimationFrame(animateBlobs)
+    }
+
+    animateBlobs();
 
     // functions
 
