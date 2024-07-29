@@ -1,5 +1,3 @@
-// imports
-
 document.addEventListener("DOMContentLoaded", () => {
     var coords = {x: 0, y: 0};
     let blobs = document.querySelectorAll(".blob");
@@ -10,11 +8,25 @@ document.addEventListener("DOMContentLoaded", () => {
     let cursor = document.getElementById('cursor');
     const words = ["programmer.", "musician.", "maker.", "engineer.", "composer.", "speedrunner.", "dreamer.", "producer.", "gamer.", "TASer.", "artist.", "creator."];
 
+    // back to tops
     window.onscroll = function( ) {scrollFunction()};
     topText.onclick = function( ) {topFunction()};
     topButton.onclick = function( ) {topFunction()};
 
-    //Scrolly stuff
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            topButton.style.display = "block";
+        } else {
+            topButton.style.display = "none";
+        }
+    }
+
+    // scrolly text
     gsap.registerPlugin(ScrollTrigger);
 
     const splitTypes = document.querySelectorAll('.reveal-type')
@@ -38,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    // lenis
+    // lenis smooth scroll
     const lenis = new Lenis();
 
     lenis.on('scroll', (e) => {
@@ -52,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     requestAnimationFrame(raf);
 
-    // typewriter
+    // typewriter text
 
     var wordIndex = 0;
     const writeLoop = async () => {
@@ -130,20 +142,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     animateBlobs();
-
-    // functions
-
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            topButton.style.display = "block";
-        } else {
-            topButton.style.display = "none";
-        }
-    }
 
 });
