@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     var coords = {x: 0, y: 0};
+    var mouseMagnifier = 1;
+    var fadingOut = false;
     let blobs = document.querySelectorAll(".blob");
     let mouse = document.querySelector(".mouse");
     let topButton = document.getElementById("bttButton");
@@ -18,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.documentElement.scrollTop = 0;
     }
 
-    function scrollFunction() {
+    const scrollFunction = async() => {
         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
             topButton.style.display = "block";
         } else {
@@ -76,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
             await sleep(1000);
             let word = words[wordIndex];
             let sleeptime = 500/word.length + Math.random()*100;
-            console.log(word);
             for (let i=0; i<word.length; i++) {
                 typetext.innerHTML += word.charAt(i);
                 await sleep(sleeptime);
@@ -101,6 +102,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // mouse followers
+
+    /*document.addEventListener("mouseover", (e) => {
+        if (e.target.matches(".hover-type")) {
+            mouseMagnifier = 3;
+        }
+    })
+
+    document.addEventListener("mouseout", (e) => {
+        if (e.target.matches(".hover-type")) {
+            mouseMagnifier = 1;
+        }
+    })*/
 
     blobs.forEach(function(blob) {
         blob.x = 0;
@@ -129,11 +142,11 @@ document.addEventListener("DOMContentLoaded", () => {
             blob.x = x;
             blob.y = y;
 
-            blob.style.scale = (blobs.length - index) / blobs.length;
+            blob.style.scale = ((blobs.length - index) / blobs.length) * mouseMagnifier;
 
             const nextBlob = blobs[index+1] || blobs[0];
-            x+=(nextBlob.x - x)*0.35;
-            y+=(nextBlob.y - y)*0.35;
+            x+=(nextBlob.x - x)*0.32;
+            y+=(nextBlob.y - y)*0.32;
 
             blob.style.zIndex = 9999 - index;
         });

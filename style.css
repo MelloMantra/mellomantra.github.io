@@ -195,13 +195,12 @@ footer a {
     position: fixed;
     bottom: 20px;
     right: 30px;
-    z-index: 999;
+    z-index: 0;
     border-width: 2px;
     border-color: white;
     outline: white;
     background-color: darkslateblue;
     color: white;
-    cursor: pointer;
     padding: 10px;
     padding-right: 15px;
     padding-left: 15px;
