@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let topText = document.getElementById("topText");
     let typetext = document.getElementById("typetext");
     let cursor = document.getElementById('cursor');
-    const words = ["programmer.", "musician.", "maker.", "engineer.", "composer.", "speedrunner.", "dreamer.", "producer.", "gamer.", "TASer.", "artist.", "creator."];
+    const words = ["programmer.", "musician.", "maker.", "engineer.", "composer.", "speedrunner.", "dreamer.", "producer.", "gamer.", "student.", "artist.", "creator."];
 
     // back to tops
     window.onscroll = function( ) {scrollFunction()};
