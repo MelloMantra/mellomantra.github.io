@@ -1,2 +1,2 @@
-# [mellomantra.github.io](https://mellomantra.github.io)
+# <a href="https://mellomantra.github.io" target="_blank">mellomantra.github.io</a>
 Mello Mantra (Matteo Del Rossi)'s personal website.
