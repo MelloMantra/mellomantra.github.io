@@ -13,7 +13,7 @@ html, body {
 header {
     position: sticky;
     top: 0;
-    z-index: 979;
+    z-index: 1;
     animation-name: quickfade;
     animation-duration: 3s;
     animation-iteration-count: 1;
@@ -74,6 +74,10 @@ section {
         color: white
     }
     &:nth-of-type(5) {
+        background-color: rgb(198, 209, 115);
+        color: black
+    }
+    &:nth-of-type(6) {
         background-color: rgb(56, 46, 121);
         color: white
     }
@@ -113,6 +117,19 @@ p.music {
     margin:0;
     padding-top: 20%;
     background-size:cover;
+}
+
+.album {
+    padding: 10px;
+    padding-bottom: 8px;
+    text-align: center;
+    align-self: center;
+    align-content: center;
+    display: inline-block;
+    scale: 0.5;
+    z-index:-1;
+    background-color: black;
+    width: 100vw;
 }
 
 nav {
@@ -249,6 +266,7 @@ footer a {
     display: block;
     top: 0;
     left: 0;
+    z-index: 9999;
 }
 
 /*
