@@ -13,6 +13,8 @@
 		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 		<script src="https://unpkg.com/split-type"></script>
 		<script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
+	    	<script src="https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+	    	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<script src="app.js"></script>
 	</head>
 
@@ -41,12 +43,17 @@
     
     <!-- performance chart -->
     <h2>PERFORMANCE</h2>
-    <ul class="performance">
-    </ul>
+    <table id="performances">
+	    <tr>
+		    <th>Name</th>
+		    <th>Est. Grade</th>
+		    <th></th>
+	    </tr>
+    </table>
     
     <!-- place bet menu -->
     <h2>ACTIONS</h2>
-    <div class="betwizard">
+    <div id="betwizard">
     </div>
 
 		<!-- FOOTER -->
