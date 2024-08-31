@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let topText = document.getElementById("topText");
     let typetext = document.getElementById("typetext");
     let cursor = document.getElementById('cursor');
+    let chart = document.getElementById('performance');
+    const data = [["P1 Average", 85, 0], ["P4 Average", 85, 0]]
     const words = ["programmer.", "musician.", "maker.", "engineer.", "composer.", "speedrunner.", "dreamer.", "producer.", "gamer.", "student.", "artist.", "creator."];
 
     // back to tops
@@ -155,5 +157,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     animateBlobs();
+
+    if (chart!=null) {
+        for (var i=0; i<data.length; i++) {
+            var newrow = document.createElement("tr");
+            chart.appendChild(newrow);
+            for (var j=0; j<data[0].length; j++) {
+                var newcell = document.createElement("td");
+                newrow.appendChild(newcell);
+                
+            }
+        }
+    }
 
 });
