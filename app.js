@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let topText = document.getElementById("topText");
     let typetext = document.getElementById("typetext");
     let cursor = document.getElementById('cursor');
+    let chart = document.getElementById('performances');
+    // [ [name, [test1, test2, ...], [overbets, underbets]], ... ]
+    var data = [["P1 Average", [85], [0,0]], ["P4 Average", [85], [0,0]]]
     const words = ["programmer.", "musician.", "maker.", "engineer.", "composer.", "speedrunner.", "dreamer.", "producer.", "gamer.", "student.", "artist.", "creator."];
 
     // back to tops
@@ -155,5 +158,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     animateBlobs();
+
+    if (chart!=null) {
+        for (var i=0; i<data.length; i++) {
+            var newrow = document.createElement("tr");
+            chart.appendChild(newrow);
+            var namecell = document.createElement("td");
+            namecell.appendChild(document.createTextNode(data[i][0]));
+
+            var g = 0;
+            for (var j=0; j<data[i][1].length; j++) {
+                g += data[i][1][j];
+            }
+            g /= data[i][1].length;
+            var gradecell = document.createElement("td");
+            gradecell.appendChild(document.createTextNode(g));
+
+            var trend = data[i][1][data[i][1].length-1]-data[i][1][data[i][1].length-2]
+            if (trend>0 && Math.abs(trend)>=3) {
+                var color = "green";
+                var icon = "▲";
+            } else if (trend<0 && Math.abs(trend)>=3) {
+                var color = "red";
+                var icon = "▼";
+            } else {
+                var color = "black";
+                var icon = "◀";
+            }
+            trend = trend.toString()+" "+icon
+            var trendcell = document.createElement("td");
+            trendcell.appendChild(document.createTextNode(trend));
+            trendcell.style.color = color
+        }
+    }
 
 });
