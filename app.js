@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let topText = document.getElementById("topText");
     let typetext = document.getElementById("typetext");
     let cursor = document.getElementById('cursor');
-    let chart = document.getElementById('performance');
+    let chart = document.getElementById('performances');
     // [ [name, [test1, test2, ...], [overbets, underbets]], ... ]
     var data = [["P1 Average", [85], [0,0]], ["P4 Average", [85], [0,0]]]
     const words = ["programmer.", "musician.", "maker.", "engineer.", "composer.", "speedrunner.", "dreamer.", "producer.", "gamer.", "student.", "artist.", "creator."];
