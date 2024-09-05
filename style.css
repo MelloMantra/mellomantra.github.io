@@ -121,15 +121,13 @@ p.music {
 
 .album {
     padding: 10px;
-    padding-bottom: 8px;
-    text-align: center;
-    align-self: center;
-    align-content: center;
-    display: inline-block;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     scale: 0.5;
-    z-index:-1;
+    position: sticky;
     background-color: black;
-    width: 100vw;
+    border-collapse: collapse;
 }
 
 nav {
@@ -253,10 +251,10 @@ footer a {
     border-radius: 100%;
     border: 1px solid white;
     opacity: 1;
+    position:absolute;
     z-index: 9999;
     width: 30px;
     height: 30px;
-    position:absolute;
     pointer-events: none;
     display: block;
 }
@@ -317,19 +315,19 @@ CUSTOM FONTS
     font-style: normal;
 }
   
-  .cousine-bold {
+.cousine-bold {
     font-family: "Cousine", monospace;
     font-weight: 700;
     font-style: normal;
 }
   
-  .cousine-regular-italic {
+.cousine-regular-italic {
     font-family: "Cousine", monospace;
     font-weight: 400;
     font-style: italic;
 }
   
-  .cousine-bold-italic {
+.cousine-bold-italic {
     font-family: "Cousine", monospace;
     font-weight: 700;
     font-style: italic;
