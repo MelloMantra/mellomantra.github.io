@@ -164,12 +164,24 @@ ul li a {
 nav a {
     font-family: "Rubik Mono One";
     text-decoration: none;
-    background-color: rgb(72, 61, 139);
+    background-color: inherit;
     color: white;
 }
 
 nav a:hover {
     background-color: rgb(41, 32, 100);
+}
+
+#performances {
+    margin-left: 50px;
+}
+
+.betsbar {
+    background-color: royalblue;
+}
+
+.betsbar a:hover {
+    background-color: rgb(31, 57, 134);
 }
 
 .logo {

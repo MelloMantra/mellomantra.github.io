@@ -13,8 +13,8 @@
 		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 		<script src="https://unpkg.com/split-type"></script>
 		<script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
-	    	<script src="https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
-	    	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	    <script src="https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<script src="app.js"></script>
 	</head>
 
@@ -23,7 +23,7 @@
         <!-- HEADER -->
 		<header>
 			<nav>
-					<ul>
+					<ul class="betsbar">
 						<li><a href="wizbets.html">HOME</a></li>
 					</ul>
 			</nav>
@@ -41,11 +41,14 @@
     <!-- performance chart -->
     <h2>PERFORMANCE</h2>
     <table id="performances">
-	    <tr>
-		    <th>Name</th>
-		    <th>Est. Grade</th>
-		    <th></th>
-	    </tr>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Est. Grade</th>
+                <th>Trend</th>
+            </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
     </table>
     
     <!-- place bet menu -->
@@ -54,8 +57,8 @@
     </div>
 
 		<!-- FOOTER -->
-		<div style="padding:70px;background-color: rgb(56, 46, 121);"></div>
-		<footer>
+		<div style="padding:70px;background-color: rgb(33, 68, 173);"></div>
+		<footer class="betsbar">
 			<div><strong style="cursor: pointer; text-decoration: underline;" id="topText">Back to top</strong></div>
 			<div>© Mello Mantra, 2024</div>
 			<div>For business inquiries, email <a href="mailto:mello.mantra.music@gmail.com"><strong>mello.mantra.music@gmail.com</strong></a>.</div>

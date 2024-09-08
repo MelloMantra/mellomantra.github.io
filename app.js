@@ -8,9 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let topText = document.getElementById("topText");
     let typetext = document.getElementById("typetext");
     let cursor = document.getElementById('cursor');
-    let chart = document.getElementById('performances');
-    // [ [name, [test1, test2, ...], [overbets, underbets]], ... ]
-    var data = [["P1 Average", [85], [0,0]], ["P4 Average", [85], [0,0]]]
+    let chart = document.getElementById('tbody');
+    var data = [
+        {name: "P1 Average", scores: [85, 88.5], overunder: [0,0]},
+        {name: "P4 Average", scores: [85, 82.5], overunder: [0,0]}
+    ]
     const words = ["programmer.", "musician.", "maker.", "engineer.", "composer.", "speedrunner.", "dreamer.", "producer.", "gamer.", "student.", "artist.", "creator."];
 
     // back to tops
@@ -159,37 +161,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
     animateBlobs();
 
-    if (chart!=null) {
-        for (var i=0; i<data.length; i++) {
-            var newrow = document.createElement("tr");
-            chart.appendChild(newrow);
-            var namecell = document.createElement("td");
-            namecell.appendChild(document.createTextNode(data[i][0]));
+    function loadTable(items) {
+        items.forEach(item => {
+            let row = chart.insertRow();
+            let namecell = row.insertCell(0);
+            namecell.innerHTML = '"'+item.name+'"';
+            namecell.style.textAlign = "center";
+            namecell.style.paddingRight = "50px";
+            namecell.style.paddingLeft = "50px";
 
             var g = 0;
-            for (var j=0; j<data[i][1].length; j++) {
-                g += data[i][1][j];
+            for (var j=0; j<item.scores.length; j++) {
+                g += item.scores[j];
             }
-            g /= data[i][1].length;
-            var gradecell = document.createElement("td");
-            gradecell.appendChild(document.createTextNode(g));
+            g /= item.scores.length;
+            let gradecell = row.insertCell(1);
+            gradecell.innerHTML = g.toString();
+            gradecell.style.fontWeight = "bold";
+            gradecell.style.paddingLeft = "30px";
+            gradecell.style.paddingRight = "30px";
+            gradecell.style.textAlign = "center";
 
-            var trend = data[i][1][data[i][1].length-1]-data[i][1][data[i][1].length-2]
-            if (trend>0 && Math.abs(trend)>=3) {
+            var trend = Math.round(((item.scores[item.scores.length-1]-item.scores[item.scores.length-2]) + Number.EPSILON) * 100) / 100;
+            let trendcell = row.insertCell(2);
+            if (trend>0 && Math.abs(trend)>=2.5) {
                 var color = "green";
                 var icon = "▲";
-            } else if (trend<0 && Math.abs(trend)>=3) {
+                trend = "+"+trend;
+                trendcell.style.backgroundColor = "rgba(85, 204, 61, 0.5)";
+            } else if (trend<0 && Math.abs(trend)>=2.5) {
                 var color = "red";
                 var icon = "▼";
+                trendcell.style.backgroundColor = "rgba(247, 126, 126, 0.5)";
             } else {
                 var color = "black";
                 var icon = "◀";
             }
-            trend = trend.toString()+" "+icon
-            var trendcell = document.createElement("td");
-            trendcell.appendChild(document.createTextNode(trend));
-            trendcell.style.color = color
-        }
+            trend = trend+" "+icon;
+            trendcell.innerHTML = trend;
+            trendcell.style.color = color;
+            trendcell.style.textAlign = "right";
+            trendcell.style.borderRadius = "5px";
+        });
+    }
+
+    if (chart!=null) {
+        loadTable(data);
     }
 
 });
