@@ -9,10 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
     let typetext = document.getElementById("typetext");
     let cursor = document.getElementById('cursor');
     let chart = document.getElementById('tbody');
+    let betwiz = document.getElementById("betwizard");
+    let actiondropdown = document.querySelector(".dropdown");
+    if (actiondropdown!=null) {let namesdropdown = document.querySelectorAll(".dropdown")[1]};
+
     var data = [
         {name: "P1 Average", scores: [85, 88.5], overunder: [0,0]},
         {name: "P4 Average", scores: [85, 82.5], overunder: [0,0]}
     ]
+
+    var users = [
+        {username: "Matteo", password: "password", email: "mgdr0777@gmail.com", points: 5}
+    ]
+
     const words = ["programmer.", "musician.", "maker.", "engineer.", "composer.", "speedrunner.", "dreamer.", "producer.", "gamer.", "student.", "artist.", "creator."];
 
     // back to tops
@@ -60,10 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // lenis smooth scroll
     const lenis = new Lenis();
 
-    lenis.on('scroll', (e) => {
-        console.log(e);
-    })
-
     function raf(time) {
         lenis.raf(time);
         requestAnimationFrame(raf);
@@ -72,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(raf);
 
     // typewriter text
-
     var wordIndex = 0;
     const writeLoop = async () => {
         while (true) {
@@ -107,19 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // mouse followers
-
-    /*document.addEventListener("mouseover", (e) => {
-        if (e.target.matches(".hover-type")) {
-            mouseMagnifier = 3;
-        }
-    })
-
-    document.addEventListener("mouseout", (e) => {
-        if (e.target.matches(".hover-type")) {
-            mouseMagnifier = 1;
-        }
-    })*/
-
     blobs.forEach(function(blob) {
         blob.x = 0;
         blob.y = 0;
@@ -161,6 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     animateBlobs();
 
+    // populate table
     function loadTable(items) {
         items.forEach(item => {
             let row = chart.insertRow();
@@ -200,13 +192,27 @@ document.addEventListener("DOMContentLoaded", () => {
             trend = trend+" "+icon;
             trendcell.innerHTML = trend;
             trendcell.style.color = color;
-            trendcell.style.textAlign = "right";
+            trendcell.style.textAlign = "center";
             trendcell.style.borderRadius = "5px";
         });
     }
 
     if (chart!=null) {
         loadTable(data);
+    }
+
+    // populate dropdown
+    function popDrop(data, menu) {
+        
+    }
+
+    if (chart!=null) {
+        var names = []
+        for (var i=0; i<data.length; i++) {
+            names.append(data[i].name);
+        }
+        popDrop(names, namesdropdown);
+        popDrop(["Over", "Under"], actiondropdown);
     }
 
 });

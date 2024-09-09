@@ -1,3 +1,5 @@
+/* STYLES */
+
 * {
     box-sizing: border-box;
     cursor: none;
@@ -119,6 +121,11 @@ p.music {
     background-size:cover;
 }
 
+.title.bets {
+    color: royalblue;
+    padding-top: 5%;
+}
+
 .album {
     padding: 10px;
     display: block;
@@ -138,10 +145,6 @@ nav ul {
     background-color: darkslateblue;
     font-size: 20px;
 }
-
-/*nav li {
-    display: inline;
-}*/
 
 ul {
     list-style-type: none;
@@ -173,7 +176,11 @@ nav a:hover {
 }
 
 #performances {
-    margin-left: 50px;
+    margin-left: 10%;
+    border-style: solid;
+    border-width: 0px;
+    border-color: black;
+    
 }
 
 .betsbar {
@@ -183,6 +190,61 @@ nav a:hover {
 .betsbar a:hover {
     background-color: rgb(31, 57, 134);
 }
+
+th {
+    font-size: large;
+    font-family: "Rubik Mono One";
+    padding-right: 20px;
+}
+
+#betwizard {
+    background-color: whitesmoke;
+    width: 32%;
+    height: 18%;
+    position: relative;
+    display: inline-block;
+    margin: 10%;
+    margin-top: 2%;
+    cursor: auto;
+    .caption {
+        cursor: auto;
+    }
+}
+
+.dropdown {
+    padding: 10px;
+    margin: 10px;
+    background-color: royalblue;
+    color: white;
+    font-family: "Cousine";
+    cursor: auto;
+}
+
+.dropdown:hover {
+    background-color: rgb(31, 57, 134);
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    cursor: auto;
+}
+  
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
 
 .logo {
     text-align: center;
