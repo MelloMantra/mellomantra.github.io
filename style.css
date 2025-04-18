@@ -279,6 +279,28 @@ footer a {
     color: white;
 }
 
+.projectblock {
+    display: flex;
+}
+
+.project img {
+    float: right;
+    height: 500px;
+    outline: darkslateblue solid 2px;
+    margin:25px
+}
+
+.project p {
+    font-size: medium;
+    margin: 25px;
+    float: left;
+}
+
+.projecttext {
+    display: flex;
+    align-items: center;
+}
+
 #bttButton {
     display: none;
     position: fixed;
