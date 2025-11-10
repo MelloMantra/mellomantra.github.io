@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {username: "Matteo", password: "password", email: "mgdr0777@gmail.com", points: 5}
     ]
 
-    const words = ["programmer.", "musician.", "maker.", "engineer.", "composer.", "speedrunner.", "dreamer.", "producer.", "gamer.", "student.", "artist.", "creator."];
+    const words = ["programmer.", "musician.", "maker.", "engineer.", "composer.", "speedrunner.", "dreamer.", "producer.", "gamer.", "student.", "artist.", "creator.", "performer.", "writer."];
 
     // back to tops
     window.onscroll = function( ) {scrollFunction()};
