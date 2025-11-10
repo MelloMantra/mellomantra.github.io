@@ -40,6 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             topButton.style.display = "none";
         }
+
+        const pos = window.scrollY * 0.2;
+        document.querySelector(".chevrons").style.backgroundPosition = `left ${pos}px, right ${pos}px`;
     }
 
     // scrolly text

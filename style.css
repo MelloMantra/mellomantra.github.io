@@ -71,6 +71,18 @@ section {
         margin: 0;
     }
 
+    a {
+        mix-blend-mode: difference;
+        filter: invert(100%);
+        text-decoration: none;
+        padding-left: 3px;
+        padding-right: 3px;
+        border-radius: 8px;
+    }
+    a:hover {
+        background-color: rgba(193, 118, 255, 0.5)
+    }
+
     &:nth-of-type(1) {
         height: 94vh;
         border-bottom: 1px solid black;
@@ -80,11 +92,11 @@ section {
         color: white
     }
     &:nth-of-type(5) {
-        background-color: rgb(198, 209, 115);
-        color: black
-    }
-    &:nth-of-type(6) {
         background-color: rgb(56, 46, 121);
+        color: white
+    }
+    &:nth-of-type(7) {
+        background-color: black;
         color: white
     }
 }
@@ -357,18 +369,20 @@ footer a {
 
 .projectblock {
     display: flex;
+    overflow: hidden;
 }
 
 .project img {
     float: right;
-    height: 500px;
+    height: clamp(100px,310px,500px);
     outline: darkslateblue solid 2px;
-    margin:25px
+    margin: 10px;
+    margin-right: none;
 }
 
 .project p {
     font-size: medium;
-    margin: 25px;
+    margin: 10px;
     float: left;
 }
 
@@ -406,6 +420,50 @@ footer a {
 
 #bttButton:hover {
     background-color: rgb(51, 43, 98);
+}
+
+.chevrons {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      darkslateblue 0,
+      darkslateblue 40px,
+      transparent 2px,
+      transparent 80px
+    ),
+    repeating-linear-gradient(
+      225deg,
+      darkslateblue 0,
+      darkslateblue 40px,
+      transparent 2px,
+      transparent 80px
+    );
+  background-size: 40px 112px;
+  background-position: left center, right center;
+  background-repeat: repeat-y;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.1;
+
+  /* Fade toward center */
+  mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 15%,
+    transparent 80%,
+    black 85%,
+    black 100%
+  );
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  mask-composite: intersect;
+  
+  /* Optional blur to make the edges look softer */
+  filter: blur(2px);
 }
 
 #typetext {
