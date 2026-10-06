@@ -39,7 +39,7 @@ p {
 }
 
 h1 {
-    text-align: center;
+    text-align: left;
     font-family: 'Josefin Sans';
     padding: 30px;
     vertical-align: middle;
@@ -58,7 +58,7 @@ section {
     height: 100vh;
     padding: 0 clamp(6rem, 14vw, 22rem);
     display: grid;
-    align-content: center;
+    align-content: left;
     
     h2 {
         font-size: clamp(3rem, 5vw, 9rem);
