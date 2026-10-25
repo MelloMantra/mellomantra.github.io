@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {username: "Matteo", password: "password", email: "mgdr0777@gmail.com", points: 5}
     ]
 
-    const words = ["programmer.", "musician.", "maker.", "engineer.", "composer.", "speedrunner.", "dreamer.", "producer.", "gamer.", "student.", "artist.", "creator.", "performer.", "writer."];
+    const words = ["programmer.", "musician.", "maker.", "engineer.", "composer.", "speedrunner.", "dreamer.", "producer.", "comedian.", "student.", "artist.", "creator.", "performer.", "writer."];
 
     // back to tops
     window.onscroll = function( ) {scrollFunction()};
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
             scrollTrigger: {
                 trigger: char,
                 start: 'top 100%',
-                end: 'top 50%',
+                end: 'top 60%',
                 scrub: true,
                 markers: false
             },
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
         while (true) {
             typetext.innerHTML = "";
             typetext.style.backgroundColor = 'inherit';
-            typetext.style.color = 'black';
+            typetext.style.color = 'var(--merlot)';
             cursor.style.display = 'inline-block';
             await sleep(1000);
             let word = words[wordIndex];
@@ -100,8 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 wordIndex++;
             }
             await sleep(2000);
-            typetext.style.backgroundColor = 'black';
-            typetext.style.color = 'white';
+            typetext.style.backgroundColor = 'var(--merlot)';
+            typetext.style.color = 'var(--bg)';
             cursor.style.display = 'none';
             await sleep(400);
         }
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
     blobs.forEach(function(blob) {
         blob.x = 0;
         blob.y = 0;
-        blob.style.backgroundColor = "white";
+        blob.style.backgroundColor = "var(--bg)";
     });
 
     document.addEventListener("mousemove", (e) => {
@@ -217,5 +217,14 @@ document.addEventListener("DOMContentLoaded", () => {
         popDrop(names, namesdropdown);
         popDrop(["Over", "Under"], actiondropdown);
     }
+
+    // set navbar height
+    function setNavHeight() {
+        const header = document.querySelector("header");
+        document.documentElement.style.setProperty("--nav-h", header.offsetHeight + "px");
+    }
+    setNavHeight();
+    window.addEventListener("resize", setNavHeight);
+
 
 });
