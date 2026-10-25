@@ -1,6 +1,6 @@
 /* VARIABLES */
 
-@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&family=Silkscreen:wght@400;700&display=swap');
 
 :root {
   --merlot: #5f002e;
@@ -8,6 +8,7 @@
   --cherry: #41001f;
   --bg : #ffe9f4;
   --lightning: #0077ff;
+  --accent: #00483b;
 }
 
 /* STYLES */
@@ -53,7 +54,7 @@ p {
 
 h1 {
     text-align: left;
-    font-family: 'Cousine';
+    font-family: 'Rubik Spray Paint';
     padding: 30px;
     vertical-align: middle;
 }
@@ -77,12 +78,15 @@ section {
     h2 {
         font-size: clamp(3rem, 5vw, 9rem);
         padding: 0;
+        font-family: 'Rubik Spray Paint';
+        color: var(--accent);
     }
 
     p {
         font-size: clamp(1rem, 2vw, 4rem);
         padding:0;
         margin: 0;
+        color: var(--accent);
     }
 
     a {
@@ -160,6 +164,12 @@ div.music {
     animation-iteration-count: 1;
 }
 
+.title.music {
+    background-image: url("https://i.pinimg.com/originals/f1/f7/55/f1f7556d112607ce1eba609f14cc4d22.jpg");
+    background-blend-mode: multiply;
+    background-size: cover;
+}
+
 /* HERO (shared by all pages) */
 section.hero {
     padding: 0;
@@ -180,7 +190,7 @@ section.hero {
     margin: 0;
     padding: 0;
     flex: 0 1 auto;
-    font-size: clamp(3rem, 9vw, 17rem);
+    font-size: clamp(3rem, 8.5vw, 17rem);
     overflow-wrap: anywhere;
 }
 
@@ -216,7 +226,7 @@ section.hero.socials-hero {
 }
 
 .socials-hero .headshot {
-    height: 100%;
+    height: 90%;
     max-height: 100%;
 }
 
@@ -720,6 +730,12 @@ CUSTOM FONTS
 
 .silkscreen-bold {
   font-family: "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.rubik-spray-paint-regular {
+  font-family: "Rubik Spray Paint", system-ui;
   font-weight: 400;
   font-style: normal;
 }
