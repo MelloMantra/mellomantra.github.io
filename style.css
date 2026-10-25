@@ -6,9 +6,10 @@
   --merlot: #5f002e;
   --porco: #b8206aa1;
   --cherry: #41001f;
-  --bg : #ffe9f4;
+  --bg : #fff5fa;
   --lightning: #0077ff;
-  --accent: #00483b;
+  --accent: #b76009;
+  --darkaccent: #412100;
 }
 
 /* STYLES */
@@ -86,7 +87,7 @@ section {
         font-size: clamp(1rem, 2vw, 4rem);
         padding:0;
         margin: 0;
-        color: var(--accent);
+        color: var(--darkaccent);
     }
 
     a {
