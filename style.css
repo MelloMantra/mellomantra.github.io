@@ -226,6 +226,10 @@ section.hero.socials-hero {
     min-height: 0;
 }
 
+.socials-hero .title {
+    text-align: center;
+}
+
 .socials-hero .headshot {
     height: 90%;
     max-height: 100%;
