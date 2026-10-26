@@ -61,8 +61,6 @@ h1 {
 }
 
 h2 {
-    padding: 10px;
-    padding-left: 25px;
     font-family: "Rubik Mono One";
     animation-name: quickfade;
     animation-duration: 2s;
@@ -71,7 +69,7 @@ h2 {
 }
 
 section {
-    height: 100vh;
+    height: 85vh;
     padding: 0 clamp(6rem, 14vw, 22rem);
     display: grid;
     align-content: left;
@@ -260,6 +258,39 @@ section.hero.socials-hero {
     object-fit: cover;
     border: 2px solid var(--merlot);
     border-radius: 12px;
+}
+
+/* DOWN-POINTING TRIANGLE ON SECTION BORDERS */
+section.has-arrow {
+    position: relative;
+}
+
+section.has-arrow::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 100%);   /* hangs just below the section's bottom edge */
+    width: 40px;
+    height: 20px;
+    background: var(--merlot);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    z-index: 2;
+}
+
+/* sections that sit directly above a dark section */
+section:nth-of-type(2).has-arrow::after,
+section:nth-of-type(4).has-arrow::after,
+section:nth-of-type(6).has-arrow::after {
+    background: var(--merlot);   /* hangs into the dark section, so use the light color */
+    background: var(--bg);
+}
+
+/* dark sections above a light section */
+section:nth-of-type(3).has-arrow::after,
+section:nth-of-type(5).has-arrow::after,
+section:nth-of-type(7).has-arrow::after {
+    background: var(--merlot);
 }
 
 .title.bets {
