@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     var coords = {x: 0, y: 0};
     var mouseMagnifier = 1;
     var fadingOut = false;
+    let hintTimer = null;
+    let scrollarrow = document.getElementById("scrollIndicator");
     let blobs = document.querySelectorAll(".blob");
     let mouse = document.querySelector(".mouse");
     let topButton = document.getElementById("bttButton");
@@ -45,6 +47,28 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".chevrons").style.backgroundPosition = `left ${pos}px, right ${pos}px`;
     }
 
+    // scroll indicator arrow
+    function startHintTimer() {
+        clearTimeout(hintTimer);
+        hintTimer = setTimeout(() => {
+            if (window.scrollY < 20) scrollarrow.classList.add("show");
+        }, 1000);
+    }
+
+    function handleHintScroll() {
+        if (window.scrollY > 20) {
+            clearTimeout(hintTimer);
+            scrollarrow.classList.remove("show");
+        } else if (!scrollarrow.classList.contains("show")) {
+            startHintTimer();
+        }
+    }
+
+    if (scrollarrow) {
+        startHintTimer();
+        window.addEventListener("scroll", handleHintScroll);
+    }
+
     // scrolly text
     gsap.registerPlugin(ScrollTrigger);
 
@@ -52,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     splitTypes.forEach((char,i) => {
 
-        const text = new SplitType(char, { types: 'chars'})
+        const text = new SplitType(char, { types: 'words, chars'})
 
         gsap.from(text.chars, {
             scrollTrigger: {

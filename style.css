@@ -8,6 +8,7 @@
   --cherry: #41001f;
   --bg : #fff5fa;
   --lightning: #0077ff;
+  --glow: #7bb9ffb8;
   --accent: #b76009;
   --darkaccent: #412100;
 }
@@ -33,7 +34,7 @@ html, body {
 header {
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 100;
     animation-name: quickfade;
     animation-duration: 3s;
     animation-iteration-count: 1;
@@ -82,7 +83,7 @@ section {
     }
 
     p {
-        font-size: clamp(1rem, 2vw, 4rem);
+        font-size: clamp(1rem, 1.25vw, 10rem);
         padding:0;
         margin: 0;
         color: var(--darkaccent);
@@ -96,7 +97,7 @@ section {
         border-radius: 8px;
     }
     a:hover {
-        background-color: var(--porco);
+        background-color: var(--glow);
     }
 
     &:nth-of-type(1) {
@@ -167,6 +168,7 @@ div.music {
     background-image: url("https://i.pinimg.com/originals/f1/f7/55/f1f7556d112607ce1eba609f14cc4d22.jpg");
     background-blend-mode: multiply;
     background-size: cover;
+    padding-left: clamp(2rem, 8vw, 10rem);
 }
 
 /* HERO (shared by all pages) */
@@ -231,6 +233,7 @@ section.hero.socials-hero {
 .socials-hero .headshot {
     height: 90%;
     max-height: 100%;
+    margin-top: 2%;
 }
 
 .social-links {
@@ -496,7 +499,7 @@ th {
 
 .logo {
     text-align: center;
-    width: 70px;
+    width: 80px;
     background-color: var(--bg);
     padding: 5px;
 }
@@ -556,7 +559,7 @@ footer a {
     position: fixed;
     bottom: 20px;
     right: 30px;
-    z-index: 0;
+    z-index: 2;
     border-width: 2px;
     border-color: var(--bg);
     outline: var(--bg);
@@ -682,6 +685,37 @@ iframe {
     margin-top: 5vh;
 }
 
+/* SCROLL HINT TRIANGLE */
+#scrollIndicator {
+    position: fixed;
+    left: 50%;
+    bottom: 1rem;
+    transform: translateX(-50%);   /* centering lives on the outer element... */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;          /* never blocks clicks */
+    z-index: 50;
+}
+
+#scrollIndicator.show {
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+#scrollIndicator span {                 /* ...so the inner element is free to animate */
+    display: block;
+    width: 28px;
+    height: 14px;
+    background: var(--merlot);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+#scrollIndicator.show span {
+    animation:
+        hintIn 0.8s ease-out both,
+        hintBob 1.6s ease-in-out 0.8s infinite;
+}
+
 .unselectable {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
@@ -707,6 +741,16 @@ ANIMATIONS
 
 @keyframes blink {
     50% { opacity: 0; }
+}
+
+@keyframes hintIn {
+    from { transform: translateY(-16px); }
+    to   { transform: translateY(0); }
+}
+
+@keyframes hintBob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(8px); }
 }
 
 /*
