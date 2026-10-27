@@ -819,7 +819,12 @@ CUSTOM FONTS
 /* MEDIA */
 /* stack on narrow screens */
 @media (max-width: 800px) {
-    .socials-hero .hero-main {
+
+    p {
+        font-size: smaller;
+    }
+
+    .hero .hero-main {
         flex-direction: column-reverse;   /* image on top, text below */
         justify-content: center;
         gap: 0.75rem;
@@ -827,15 +832,16 @@ CUSTOM FONTS
     }
 
     /* image fills whatever height is left, as a square */
-    .hero.socials-hero .headshot {
+    .hero .headshot {
         flex: 1 1 0;
         min-height: 0;
         height: auto;
-        max-height: 80%;
+        max-height: 70%;
         width: auto;
         max-width: 70%;
         aspect-ratio: 1;
         object-fit: cover;
+        margin: 1rem
     }
 
     .socials-hero .hero-text {
@@ -843,13 +849,13 @@ CUSTOM FONTS
         text-align: center;
     }
 
-    .socials-hero .title {
-        font-size: clamp(2.25rem, 13vw, 4.5rem);
+    .hero .title {
+        font-size: clamp(2.25rem, 10vw, 4.5rem);
         line-height: 1;
     }
 
-    .socials-hero .hero-sub {
-        margin-top: 0.4rem;
+    .hero .hero-sub {
+        margin: 1rem;
         font-size: 1rem;
     }
 
