@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
             scrollTrigger: {
                 trigger: char,
                 start: 'top 100%',
-                end: 'top 60%',
+                end: 'top 53%',
                 scrub: true,
                 markers: false
             },

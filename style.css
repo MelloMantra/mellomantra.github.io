@@ -832,19 +832,34 @@ CUSTOM FONTS
     }
 
     /* image fills whatever height is left, as a square */
-    .hero .headshot {
-        flex: 1 1 0;
-        min-height: 0;
-        height: auto;
-        max-height: 70%;
-        width: auto;
-        max-width: 70%;
+    .hero-main .headshot {
+        flex: none;                      /* no longer stretches to fill leftover height */
+        width: min(70vw, 40svh);         /* whichever is smaller: 70% of screen width or 40% of screen height */
+        height: auto;                    /* comes from aspect-ratio */
+        max-width: none;
+        max-height: none;
         aspect-ratio: 1;
         object-fit: cover;
-        margin: 1rem
+        margin: 1rem;
+    }
+
+    .hero-main .image {
+        flex: none;                      /* no longer stretches to fill leftover height */
+        width: min(50vw, 25svh);         /* whichever is smaller: 70% of screen width or 40% of screen height */
+        height: auto;                    /* comes from aspect-ratio */
+        max-width: none;
+        max-height: none;
+        aspect-ratio: 1;
+        object-fit: cover;
+        margin: 1rem;
     }
 
     .socials-hero .hero-text {
+        flex: none;
+        text-align: center;
+    }
+
+    .home {
         flex: none;
         text-align: center;
     }
@@ -865,5 +880,9 @@ CUSTOM FONTS
 
     .social-links .logo {
         width: clamp(40px, 11vw, 56px);
+    }
+
+    .title.music {
+        font-size: medium;
     }
 }
